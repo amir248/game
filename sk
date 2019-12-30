@@ -1,0 +1,200 @@
+	<script>
+		let player =[];
+		let IE=[];
+		//---------------------------------------------------------------------
+		//--------------Для всязи клетки и массива особая функция--------------
+		//---------------------------------------------------------------------
+	function Geme(){ 
+		function getRandomFloat(min, max) {
+		return Math.random() * (max - min) + min;
+		}										
+		let randGeme= (Math.round(getRandomFloat(1, 9)));
+		let hod = ('cell_'+[randGeme]);
+		//------------------------------------------
+		//----Условия на рандомный ход за нули------
+		//------------------------------------------
+		let bigIE = IE.includes(1)||IE.includes(2)||IE.includes(3)||IE.includes(4)||IE.includes(5)||IE.includes(6)||IE.includes(7)||IE.includes(8)||IE.includes(9);
+		let bigplayer= player.includes(1)||player.includes(2)||player.includes(3)||player.includes(4)||player.includes(5)||player.includes(6)||player.includes(7)||player.includes(8)||player.includes(9);
+		if(player>IE){
+		document.getElementById(hod).valueOf().innerHTML= "O";
+		IE.push([randGeme]);
+			if(randGeme == player.toString()){ // кесли рандом выпадает на нажатую клетку
+				document.getElementById(hod).valueOf().innerHTML= "X";
+				document.getElementById('textMassiva2').innerHTML = "<h1 align='center'>Ура! Вам попаллся удачный артифакт!<a href='https://foto248.ru/fotouslugi'> 5% СКИДКА НА ФОТО УСЛУГИ! </h1>";
+				return Geme();	
+				}else if(IE.toString()==player.toString()){
+					console.log("Вот оно что!");
+					return Geme();
+				}else if(IE.toString(randGeme)){
+					console.log(IE.toString(randGeme)+"массив попала на рандом");
+					return ;
+				}else{
+					console.log('ni odno uslovie ne srabotalo');
+					return ;
+				}
+		}else if((player.includes(9)&&player.includes(8)==true)&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_9').innerHTML = "O";
+			IE.push(9);
+			console.log('сработало условие с клеткой 9');
+		}else if((player.includes(5)&&player.includes(6)==true)&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_4').innerHTML = "O";
+			IE.push(4);	
+			console.log('сработало условие с клеткой 4');
+		}else if(player.includes(9)==false&&IE.includes(9)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_9').innerHTML = "O";
+			IE.push(9);
+			console.log('сработало условие с клеткой 9');
+		}else if(player.includes(7)==false&&IE.includes(7)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_7').innerHTML = "O";
+			IE.push(7);
+			console.log('сработало условие с клеткой 7');
+		}else if(player.includes(1)==false&&IE.includes(1)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_1').innerHTML = "O";
+			IE.push(1);
+			console.log('сработало условие с клеткой 1');
+		}else if(player.includes(8)==false&&IE.includes(8)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_8').innerHTML = "O";
+			IE.push(8);
+			console.log('сработало условие с клеткой 8');
+		}else if(player.includes(5)==false&&IE.includes(5)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_5').innerHTML = "O";
+			IE.push(5);
+			console.log('сработало условие с клеткой 5');
+		}else if(player.includes(4)==false&&IE.includes(4)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_4').innerHTML = "O";
+			IE.push(4);
+			console.log('сработало условие с клеткой 4');
+		}else if(player.includes(2)==false&&IE.includes(2)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_2').innerHTML = "O";
+			IE.push(2);
+			console.log('сработало условие с клеткой 2');
+		}else if(player.includes(3)==false&&IE.includes(3)==false&&IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_3').innerHTML = "O";
+			IE.push(3);	
+			console.log('сработало условие с клеткой 3');
+		}else if(IE!=bigplayer&&IE!=bigIE){
+			document.getElementById('cell_6').innerHTML = "O";
+			IE.push(6);					
+			console.log('сработало условие с клеткой 6');
+		}else{
+			console.log(player.toString()+"  "+IE+"что это такое За нули нет доступного хода");
+			return Geme();
+		}
+		console.log(player.toString());
+		
+	}
+		cell_1.onclick = function() {
+			cell_1.innerHTML= "X";
+			player.push(1);
+			Geme();
+			this.onclick = null;
+			
+			
+		} 
+		cell_2.onclick = function() {
+			cell_2.innerHTML="X";
+			player.push(2);
+			Geme();
+			this.onclick = null;
+		}
+		cell_3.onclick = function() {
+			cell_3.innerHTML="X";
+			player.push(3);
+			Geme();
+			this.onclick = null;
+		}
+		cell_4.onclick = function() {
+			cell_4.innerHTML="X";
+			player.push(4);
+			Geme();
+			this.onclick = null;
+		}
+		cell_5.onclick = function() {
+			cell_5.innerHTML="X";
+			player.push(5);
+			Geme();
+			this.onclick = null;
+		}
+		cell_6.onclick = function() {
+			cell_6.innerHTML="X";
+			player.push(6);
+			Geme();
+			this.onclick = null;
+		}
+		cell_7.onclick = function() {
+			cell_7.innerHTML="X";
+			player.push(7);
+			Geme();
+			this.onclick = null;
+		}
+		cell_8.onclick = function() {
+			cell_8.innerHTML="X";
+			player.push(8);
+			Geme();
+			this.onclick = null;
+		}
+		cell_9.onclick = function() {
+			cell_9.innerHTML="X";
+			player.push(9);
+			Geme();
+			this.onclick = null;
+		
+		}
+	//-------------------------------------------------
+	//---------тут общий клик вообще по всей области---
+	//-------------------------------------------------
+let listenTable = document.getElementById('tab');
+listenTable.addEventListener('click', function() {
+	//let target = event.target;
+	IE.sort();
+	player.sort();
+				//----------------------------------------------------------------------------------
+				//-----------------------------условия победы ноликов-------------------------------
+				//----------------------------------------------------------------------------------
+				if(IE.includes(1)&&IE.includes(2)&&IE.includes(3)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(4)&&IE.includes(5)&&IE.includes(6)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(7)&&IE.includes(8)&&IE.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(1)&&IE.includes(5)&&IE.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(3)&&IE.includes(5)&&IE.includes(7)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(1)&&IE.includes(4)&&IE.includes(7)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(2)&&IE.includes(5)&&IE.includes(8)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else if(IE.includes(3)&&IE.includes(6)&&IE.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили нолики!</h1>';
+				}else{
+					//document.getElementById('textMassiva').innerHTML= '<h1>что то не так</h1>';
+				}
+				//----------------------------------------------------------------------------------
+				//-----------------------------условия победы крестиков-----------------------------
+				//----------------------------------------------------------------------------------
+				if(player.includes(1)&&player.includes(2)&&player.includes(3)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(4)&&player.includes(5)&&player.includes(6)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(7)&&player.includes(8)&&player.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(1)&&player.includes(5)&&player.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(3)&&player.includes(5)&&player.includes(7)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(1)&&player.includes(4)&&player.includes(7)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(2)&&player.includes(5)&&player.includes(8)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else if(player.includes(3)&&player.includes(6)&&player.includes(9)){
+					document.getElementById('textMassiva').innerHTML= '<h1>Победили крестики!</h1>';
+				}else{
+					//document.getElementById('textMassiva').innerHTML= '<h1>что то не так</h1>';
+				}
+				
+				console.log(IE+' Массив Нулей! ---------'+IE.toString()+IE.length+"ctroka i chislo");
+				console.log(player+" Массив игрока");
+			
+});
+	</script>
