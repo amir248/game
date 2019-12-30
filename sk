@@ -1,4 +1,4 @@
-	<script>
+	
 		let player =[];
 		let IE=[];
 		//---------------------------------------------------------------------
@@ -197,4 +197,4 @@ listenTable.addEventListener('click', function() {
 				console.log(player+" Массив игрока");
 			
 });
-	</script>
+	
