@@ -54,10 +54,10 @@
 		//---------------------------------------------------------------------
 		//--------------Для всязи клетки и массива особая функция--------------
 		//---------------------------------------------------------------------
-	function Geme(){ 
+	function Geme(){
 		function getRandomFloat(min, max) {
 		return Math.random() * (max - min) + min;
-		}										
+		}
 		let randGeme= (Math.round(getRandomFloat(1, 9)));
 		let hod = ('cell_'+[randGeme]);
 		//------------------------------------------
@@ -70,8 +70,8 @@
 		IE.push([randGeme]);
 			if(randGeme == player.toString()){ // кесли рандом выпадает на нажатую клетку
 				document.getElementById(hod).valueOf().innerHTML= "X";
-				document.getElementById('textMassiva2').innerHTML = "<h1 align='center'>Ура! Вы можете посмотреть на резюме этой калиграфии!<a href='https://nasobe.ru/resume/resume.html'> 5% СКИДКА НА ФОТО УСЛУГИ! </h1>";
-				return Geme();	
+				document.getElementById('textMassiva2').innerHTML = "<h1 align='center'>Ура! Вы можете посмотреть на резюме этой калиграфии!<a href='https://qucu.ru/'> 5% СКИДКА НА ФОТО УСЛУГИ! </h1>";
+				return Geme();
 				}else if(IE.toString()==player.toString()){
 					console.log("Вот оно что!");
 					return Geme();
@@ -88,7 +88,7 @@
 			console.log('сработало условие с клеткой 9');
 		}else if((player.includes(5)&&player.includes(6)==true)&&IE!=bigplayer&&IE!=bigIE){
 			document.getElementById('cell_4').innerHTML = "O";
-			IE.push(4);	
+			IE.push(4);
 			console.log('сработало условие с клеткой 4');
 		}else if(player.includes(9)==false&&IE.includes(9)==false&&IE!=bigplayer&&IE!=bigIE){
 			document.getElementById('cell_9').innerHTML = "O";
@@ -120,27 +120,27 @@
 			console.log('сработало условие с клеткой 2');
 		}else if(player.includes(3)==false&&IE.includes(3)==false&&IE!=bigplayer&&IE!=bigIE){
 			document.getElementById('cell_3').innerHTML = "O";
-			IE.push(3);	
+			IE.push(3);
 			console.log('сработало условие с клеткой 3');
 		}else if(IE!=bigplayer&&IE!=bigIE){
 			document.getElementById('cell_6').innerHTML = "O";
-			IE.push(6);					
+			IE.push(6);
 			console.log('сработало условие с клеткой 6');
 		}else{
 			console.log(player.toString()+"  "+IE+"что это такое За нули нет доступного хода");
 			return Geme();
 		}
 		console.log(player.toString());
-		
+
 	}
 		cell_1.onclick = function() {
 			cell_1.innerHTML= "X";
 			player.push(1);
 			Geme();
 			this.onclick = null;
-			
-			
-		} 
+
+
+		}
 		cell_2.onclick = function() {
 			cell_2.innerHTML="X";
 			player.push(2);
@@ -188,7 +188,7 @@
 			player.push(9);
 			Geme();
 			this.onclick = null;
-		
+
 		}
 
 	//-------------------------------------------------
@@ -244,10 +244,10 @@ listenTable.addEventListener('click', function() {
 				}else{
 					//document.getElementById('textMassiva').innerHTML= '<h1>что то не так</h1>';
 				}
-				
+
 				console.log(IE+' Массив Нулей! ---------'+IE.toString()+IE.length+"ctroka i chislo");
 				console.log(player+" Массив игрока");
-			
+
 });
 
 	</script>
